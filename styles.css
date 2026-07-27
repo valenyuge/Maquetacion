@@ -1,0 +1,865 @@
+/* ============================================================
+   CLUB TOLOSANO — HOJA DE ESTILOS BASE
+   Tarea 2: Custom Properties + Grid Layout (mobile-first)
+   ============================================================ */
+
+/* ---------- 1. DESIGN TOKENS ---------- */
+:root {
+  /* Colores */
+  --color-primario: #38547B;
+  --color-secundario: #273A5B;
+  --color-oscuro: #0A1B2C;
+  --color-acento: #014491;
+  --color-claro: #D1D4E3;
+  --color-gris: #D9D9D9;
+  --gradiente-fondo: linear-gradient(85.32deg, #FFFFFF 3.79%, #2C71FF 108.7%);
+
+  /* Tipografía */
+  --font-titulos: 'Bebas Neue', sans-serif;
+  --font-base: 'Exo', sans-serif;
+
+  /* Escala de espaciado */
+  --espacio-xs: 0.5rem;   /* 8px */
+  --espacio-sm: 1rem;     /* 16px */
+  --espacio-md: 2rem;     /* 32px */
+  --espacio-lg: 4rem;     /* 64px */
+}
+
+/* ---------- 2. RESET BÁSICO ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ---------- 3. TIPOGRAFÍA GLOBAL ---------- */
+body {
+  font-family: 'Exo', sans-serif;
+  color: var(--color-oscuro);
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4,
+.header__nombre,
+.footer__titulo,
+.footer__nombre {
+  font-family: var(--font-titulos);
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+  text-transform: none;
+}
+
+/* ==============================================================
+   4. LAYOUT MACRO — MOBILE FIRST (default: 1 columna, min 375px)
+   ============================================================== */
+
+.container {
+  width: 100%;
+  padding: 0 var(--espacio-sm);
+}
+
+@media (min-width: 1280px) {
+  .container {
+    padding: 0 70px;
+  }
+}
+
+/* — MOBILE FIRST (default: 1 columna, min 375px)
+   ============================================================== */
+
+/* ---------- Header ---------- */
+.header__container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--espacio-sm);
+  padding-top: var(--espacio-sm);
+  padding-bottom: var(--espacio-sm);
+}
+
+.header__marca {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-xs);
+}
+
+.header__logo {
+  width: 48px;
+}
+
+.nav__lista {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.nav__item {
+  padding: 0 var(--espacio-sm);
+}
+
+.nav__item:last-child {
+  padding-right: 0;
+}
+
+/* ---------- Main: flujo general en 1 columna ---------- */
+.main {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--espacio-lg);
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  display: flex;
+  align-items: center;
+  min-height: 90vh;
+  padding: var(--espacio-md) 0;
+}
+
+.hero__contenido {
+  display: grid;
+  gap: var(--espacio-sm);
+  text-align: left;
+}
+
+/* ---------- Botones (base, sin color todavía) ---------- */
+.boton {
+  display: inline-block;
+  width: fit-content;
+  padding: var(--espacio-xs) var(--espacio-sm);
+  font-family: 'Exo', sans-serif;
+}
+
+/* ---------- Próximos encuentros ---------- */
+.encuentros {
+  display: grid;
+  gap: var(--espacio-sm);
+}
+
+.encuentros__encabezado {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-sm);
+}
+
+.encuentros__decoracion {
+  flex-grow: 1;
+}
+
+.encuentros__contenedor {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 85%;
+  gap: var(--espacio-sm);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: var(--espacio-xs);
+  /* Ocultar scrollbar visualmente pero permitir scroll */
+  scrollbar-width: none;
+}
+.encuentros__contenedor::-webkit-scrollbar {
+  display: none;
+}
+
+.tarjeta-evento {
+  position: relative;
+  min-height: 530px;
+  scroll-snap-align: start;
+}
+
+.tarjeta-evento__info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: var(--espacio-sm);
+}
+
+/* ---------- Mantenete al tanto (novedades) ---------- */
+.novedades {
+  display: grid;
+  gap: var(--espacio-md);
+}
+
+.novedades__encabezado {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--espacio-sm);
+}
+
+.novedades__titulo-grupo {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-sm);
+}
+
+/* El carrusel: cada ítem ocupa el ancho completo, siempre en 1 columna */
+.novedades__carrusel {
+  position: relative;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.tarjeta-noticia {
+  container-type: inline-size;
+  container-name: tarjeta-noticia;
+}
+
+.tarjeta-noticia__contenido {
+  display: grid;
+  gap: var(--espacio-xs);
+}
+
+/* ---------- Sponsors ---------- */
+.sponsors {
+  display: grid;
+  gap: var(--espacio-md);
+  padding: var(--espacio-lg) var(--espacio-sm);
+  align-content: start;
+}
+
+.sponsors__cabecera {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-xs);
+}
+
+.sponsors__lista {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: var(--espacio-lg);
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  display: grid;
+  grid-template-columns: 1fr;
+  padding: 80px 0; /* medida estricta pedida por el diseño */
+}
+
+.footer__grid {
+  display: grid;
+  grid-template-columns: 1fr; /* mobile: 1 columna */
+  gap: 80px; /* medida estricta pedida por el diseño */
+}
+
+.footer__columna {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-xs);
+  align-items: start;
+}
+
+.footer__marca {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-xs);
+}
+
+.footer__lista,
+.footer__redes {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-xs);
+}
+
+.footer__redes {
+  flex-direction: row;
+  gap: var(--espacio-md);
+}
+
+.footer__bottom {
+  grid-column: 1 / -1;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 2rem;
+  margin-top: 2rem;
+  text-align: center;
+}
+
+/* Tablet: 2 columnas */
+@media (min-width: 768px) {
+  .footer__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ==============================================================
+   5. DESKTOP (min-width: 1280px)
+   ============================================================== */
+@media (min-width: 1280px) {
+
+  /* Header: logo a la izquierda, nav a la derecha */
+  .header__container {
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: var(--espacio-sm);
+    padding-bottom: var(--espacio-sm);
+  }
+
+  .header__nav {
+    justify-self: end;
+  }
+
+  /* Hero: texto contenido a la izquierda sobre la imagen */
+  .hero__contenido {
+    max-width: 50%;
+  }
+
+  .hero__titulo {
+    font-size: 6rem;
+  }
+
+  .main {
+    /* padding delegado a .container */
+  }
+
+  /* Encabezados de sección: título y CTA/descripción en línea */
+  .novedades__encabezado {
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* Sponsors: título y texto lado a lado en desktop */
+  .sponsors__cabecera {
+    flex-direction: row;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .encuentros__contenedor {
+    /* Calculamos dinámicamente para que SIEMPRE se vean 3 tarjetas enteras y un ~15% de la cuarta, manteniendo la proporción de 396px en pantallas de 1440px */
+    grid-auto-columns: calc((100% - (var(--espacio-sm) * 3)) / 3.15);
+  }
+
+  /* Footer: 4 columnas (Marca, Mapa, Comunidad, Contacto) */
+  .footer__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .footer__columna--contacto {
+    text-align: right;
+    align-items: end;
+  }
+}
+
+/* ==============================================================
+   6. LOOK & FEEL — Colores, fondos y microcomposición
+   (No se modifica ninguna propiedad de Grid definida arriba)
+   ============================================================== */
+
+/* ---------- Elementos globales ---------- */
+body {
+  background-color: #000000;
+  color: #FFFFFF;
+}
+
+.boton {
+  border-radius: 4px;
+  font-weight: normal;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.boton--primario {
+  background-color: var(--color-acento);
+  color: #FFFFFF;
+  border: none;
+}
+
+.boton--primario:hover {
+  background-color: var(--color-secundario);
+}
+
+.boton--secundario {
+  background-color: transparent;
+  color: var(--color-primario);
+  border: 1px solid var(--color-primario);
+}
+
+.boton--secundario:hover {
+  background-color: var(--color-primario);
+  color: #FFFFFF;
+}
+
+/* ---------- Header ---------- */
+.header {
+  background-color: #000000;
+  color: #FFFFFF;
+}
+
+.header__nombre {
+  color: #FFFFFF;
+}
+
+.nav__item {
+  border-right: 1px solid rgba(217, 217, 217, 0.4); /* var(--color-gris) semitransparente */
+}
+
+.nav__item:last-child {
+  border-right: none;
+}
+
+.nav__link {
+  font-family: var(--font-titulos);
+  text-transform: uppercase;
+  color: var(--color-claro);
+}
+
+.nav__link:hover {
+  color: #FFFFFF;
+}
+
+.nav__link--activo {
+  color: var(--color-acento);
+  font-weight: normal;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  background-image: 
+    linear-gradient(to bottom, #000000 0%, transparent 10%),
+    linear-gradient(to top, #000000 0%, transparent 4%),
+    linear-gradient(to right, #000000 0%, transparent 100%), 
+    url('assets/portada.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.hero__categoria {
+  color: var(--color-claro);
+  letter-spacing: 0.05em;
+  font-size: 0.875rem;
+}
+
+.hero__titulo {
+  line-height: 0.95;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.hero__titulo--outline {
+  color: transparent;
+   /* Borde finito. (El gradiente en el borde del texto no es posible en CSS sin SVG) */
+}
+
+.hero__titulo--solid {
+  color: #528FFF;
+  
+  margin-top: -0.15em;
+  position: relative;
+  z-index: 2;
+  font-size: 104px;
+}
+
+.hero__bajada {
+  color: var(--color-claro);
+}
+
+.hero__cta {
+  /* Doble background para permitir border-radius + border gradient */
+  background: 
+    linear-gradient(var(--color-acento), var(--color-acento)) padding-box,
+    linear-gradient(90deg, #FFFFFF 0%, #2C71FF 100%) border-box;
+  border: 1px solid transparent;
+  color: #FFFFFF;
+  padding: var(--espacio-xs) var(--espacio-md);
+}
+
+/* ---------- Botón pastilla (reutilizable: Hero y Novedades) ---------- */
+.boton--pastilla {
+  border-radius: 999px;
+}
+
+/* ---------- Barra decorativa diagonal (reutilizable: encabezados de sección) ---------- */
+.titulo-decoracion {
+  height: 40px;
+  background: linear-gradient(to right, #FFFFFF, var(--color-acento));
+  clip-path: polygon(10px 0, 100% 0, 100% 100%, 0 100%);
+}
+
+/* ---------- Tarjeta de noticia: slide destacado del carrusel ---------- */
+.tarjeta-noticia {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background-image:
+    linear-gradient(to bottom, transparent 0%, transparent 60%, #000000 100%),
+    url('https://placehold.co/1200x600/0A1B2C/0A1B2C');
+  background-size: cover;
+  background-position: center;
+}
+
+.tarjeta-noticia__container {
+  display: flex;
+  align-items: flex-end;
+  height: 100%;
+  padding-bottom: 3rem;
+}
+
+.tarjeta-noticia__contenido {
+  position: relative;
+  max-width: 85%;
+}
+
+.tarjeta-noticia__titulo {
+  font-family: var(--font-titulos);
+  text-transform: uppercase;
+  color: #FFFFFF;
+  font-size: 2rem;
+}
+
+.tarjeta-noticia__resumen {
+  color: #FFFFFF;
+  font-weight: 400;
+}
+
+.tarjeta-noticia__cta {
+  width: fit-content;
+  /* Doble background para permitir border-radius + border gradient */
+  background: 
+    linear-gradient(var(--color-acento), var(--color-acento)) padding-box,
+    linear-gradient(90deg, #FFFFFF 0%, #2C71FF 100%) border-box;
+  border: 1px solid transparent;
+  color: #FFFFFF;
+  padding: var(--espacio-xs) var(--espacio-md);
+}
+
+/* Contenedor ancho: el texto puede acotarse como pide la maqueta de escritorio */
+@container tarjeta-noticia (min-width: 600px) {
+  .tarjeta-noticia__contenido {
+    max-width: 60%;
+  }
+}
+
+/* ---------- Controles del carrusel ---------- */
+.carrusel__controles-wrapper {
+  position: absolute;
+  bottom: -60px; /* Mas abajo dentro del gap */ /* Centro exacto del gap de 64px entre secciones */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 40px;
+  pointer-events: none;
+}
+
+.carrusel__indicadores {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  pointer-events: auto;
+}
+
+.carrusel__indicador {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid var(--color-acento);
+  background-color: transparent;
+}
+
+.carrusel__indicador--activo {
+  background-color: var(--color-acento);
+}
+
+.carrusel__flecha {
+  position: absolute;
+  bottom: 0;
+  right: var(--espacio-sm);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--color-acento);
+  color: #FFFFFF;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+@media (min-width: 1280px) {
+  .carrusel__flecha {
+    right: 70px;
+  }
+}
+
+.tarjeta-evento {
+  border: 2px solid var(--color-acento);
+  border-radius: 6px;
+  overflow: hidden;
+  background-image:
+    linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 50%),
+    url('https://placehold.co/600x800/0A1B2C/0A1B2C');
+  background-size: cover;
+  background-position: center;
+}
+
+.tarjeta-evento__categoria {
+  color: var(--color-claro);
+  font-size: 0.875rem;
+}
+
+.tarjeta-evento__titulo {
+  font-family: var(--font-titulos);
+  text-transform: uppercase;
+  color: #FFFFFF;
+  font-size: 1.75rem;
+}
+
+.tarjeta-evento__meta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-xs);
+  margin-top: var(--espacio-xs);
+}
+
+.tarjeta-evento__meta-item {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-xs);
+  font-size: 0.75rem;
+  color: #FFFFFF;
+}
+
+/* ---------- Sponsors ---------- */
+.sponsors {
+  background: linear-gradient(to bottom, #000000 0%, rgba(0,0,0,0) 100%), url('assets/fondo-sponsors.jpg') bottom / cover no-repeat;
+  min-height: 100vh;
+  align-content: start;
+}
+
+.sponsors__titulo {
+  font-size: 3rem;
+  font-weight: normal;
+  color: transparent;
+  
+}
+
+.sponsors__texto {
+  max-width: 400px;
+  font-size: 0.875rem;
+  color: var(--color-claro);
+}
+
+.sponsors__logo {
+  max-width: 200px;
+  transition: transform 0.3s ease;
+}
+
+.sponsors__logo:hover {
+  transform: scale(1.1);
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  background-color: #022102;
+  color: var(--color-claro);
+  }
+
+.footer__nombre {
+  color: #FFFFFF;
+  font-size: 1.25rem;
+}
+
+.footer__titulo {
+  color: #FFFFFF;
+  font-size: 1rem;
+  margin-bottom: var(--espacio-xs);
+}
+
+.footer__texto,
+.footer__link {
+  font-size: 0.875rem;
+  opacity: 0.75;
+}
+
+.footer__link {
+  text-decoration: none;
+  color: var(--color-claro);
+}
+
+.footer__link:hover {
+  opacity: 1;
+  color: #FFFFFF;
+}
+
+.footer__link--icono {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-xs);
+  opacity: 1;
+}
+
+.footer__icono {
+  flex-shrink: 0;
+}
+
+.footer__copyright {
+  color: var(--color-claro);
+  font-size: 0.875rem;
+  opacity: 0.75;
+}
+
+/* ---------- Botón volver arriba ---------- */
+.boton-subir {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--color-acento);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.icono-flecha-arriba {
+  font-size: 1.1rem;
+  line-height: 1;
+  color: #FFFFFF;
+}
+/* Flecha encuentros */
+.carrusel-encuentros__flecha {
+  position: absolute;
+  top: 50%;
+  right: var(--espacio-sm);
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--color-acento);
+  color: #FFFFFF;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+@media (min-width: 1280px) {
+  .carrusel-encuentros__flecha {
+    right: 70px;
+  }
+}
+
+.encuentros__contenedor {
+  scroll-behavior: smooth;
+}
+
+/* ==============================================================
+   7. TAMAÑOS DE TEXTO ESTRICTOS (Desktop)
+   ============================================================== */
+@media (min-width: 1280px) {
+
+  /* TAMAÑOS DE TEXTO DESKTOP (Figma) */
+  .header__nombre, .nav__link { font-size: 32px; }
+  
+  .hero__categoria { font-size: 16px; }
+  .hero__titulo {
+  line-height: 0.85;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+  .hero__titulo--outline { font-size: 160px; }
+  .hero__titulo--solid { font-size: 224px; }
+  .hero__bajada { font-size: 20px; }
+  .hero__cta { font-size: 14px; }
+  
+  .encuentros__titulo, .novedades__titulo { font-size: 96px; }
+  .tarjeta-evento__titulo { font-size: 40px; }
+  .tarjeta-evento__categoria { font-size: 16px; }
+  .tarjeta-evento__meta-item { font-size: 12px; }
+  
+  .tarjeta-noticia__titulo { font-size: 64px; }
+  .tarjeta-noticia__resumen { font-size: 24px; }
+  .tarjeta-noticia__cta { font-size: 14px; }
+  
+  .sponsors__titulo { font-size: 96px; }
+  .sponsors__texto { font-size: 16px; }
+  
+  .footer__texto, .footer__link, .footer__copyright { font-size: 14px; }
+
+}
+
+/* Force Exo font and remove italics on footer */
+.footer {
+  font-family: 'Exo', sans-serif !important;
+}
+.footer * {
+  font-family: 'Exo', sans-serif !important;
+  font-style: normal !important;
+}
+
+/* Ensure Bebas Neue does not get faux-bolded by browser heading styles */
+h1, h2, h3, h4, h5, h6, .seccion__titulo, .encuentros__titulo, .novedades__titulo {
+  font-weight: normal;
+}
+
+/* Global reset to prevent any bold text as requested */
+b, strong, th {
+  font-weight: normal;
+}
+
+.sponsors__cabecera {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.sponsors__titulo {
+  flex: 0 0 auto;
+  min-width: 450px;
+}
+.sponsors__texto {
+  flex: 1 1 auto;
+  margin-left: 2rem;
+}

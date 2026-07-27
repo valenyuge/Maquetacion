@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Club Tolosano<br>| Inicio</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Beiruti:wght@200..900&family=Exo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <script src="script.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="header" id="top">
+    <div class="container header__container">
+      <div class="header__marca">
+        <img class="header__logo" src="assets/logo-tolosano.png" alt="Escudo del Club Tolosano">
+        <span class="header__nombre">TOLOSANO</span>
+      </div>
+
+      <nav class="header__nav nav" aria-label="Navegación principal">
+        <ul class="nav__lista">
+          <li class="nav__item"><a class="nav__link nav__link--activo" href="#inicio">Inicio</a></li>
+          <li class="nav__item"><a class="nav__link" href="#noticias">Noticias</a></li>
+          <li class="nav__item"><a class="nav__link" href="#deportes">Deportes</a></li>
+          <li class="nav__item"><a class="nav__link" href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main" id="inicio">
+
+    <!-- ==================== HERO ==================== -->
+    <section class="hero" aria-labelledby="hero-titulo">
+      <div class="container">
+        <article class="hero__contenido">
+        <p class="hero__categoria">» Pasión, barrio y fútbol</p>
+        <h1 class="hero__titulo" id="hero-titulo">
+  <svg class="hero__titulo--outline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 180" style="width: 100%; max-width: 650px; height: auto; max-height: 180px; overflow: visible;" aria-label="CAMPEONES">
+    <defs>
+      <linearGradient id="gradCampeones" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="3.79%" stop-color="#FFFFFF" />
+        <stop offset="108.7%" stop-color="#2C71FF" />
+      </linearGradient>
+    </defs>
+    <text x="2" y="55%" dominant-baseline="middle" text-anchor="start" fill="none" stroke="url(#gradCampeones)" stroke-width="4" stroke-linejoin="round" style="font-family: 'Bebas Neue', sans-serif; font-size: 160px;">CAMPEONES</text>
+  </svg>
+  <svg class="hero__titulo--solid" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 350" style="width: 100%; max-width: 650px; height: auto; max-height: 350px; margin-top: -150px; z-index: 2; position: relative; overflow: visible;" aria-label="2025">
+    <defs>
+      <linearGradient id="grad2025" x1="0%" y1="100%" x2="0%" y2="0%">
+        <stop offset="0%" stop-color="#FFFFFF" />
+        <stop offset="100%" stop-color="#2C71FF" />
+      </linearGradient>
+    </defs>
+    <text x="30%" y="55%" dominant-baseline="middle" text-anchor="middle" fill="#528FFF" stroke="url(#grad2025)" stroke-width="8" stroke-linejoin="round" paint-order="stroke fill" letter-spacing="7.5px" style="font-family: 'Bebas Neue', sans-serif; font-size: 224px;">2025</text>
+  </svg>
+</h1>
+        <p class="hero__bajada">
+          Un título que lleva el nombre de Tolosano<br>y el corazón de toda su gente.
+        </p>
+        <a class="hero__cta boton boton--primario boton--pastilla" href="#noticias">Camino al titulo &gt;</a>
+      </article>
+      </div>
+    </section>
+
+    <!-- ==================== PRÓXIMOS ENCUENTROS ==================== -->
+    <section class="encuentros" aria-labelledby="encuentros-titulo">
+      <div class="container" style="position: relative;">
+        <div class="encuentros__encabezado">
+        <h2 class="encuentros__titulo" id="encuentros-titulo">Próximos encuentros</h2>
+        <div class="encuentros__decoracion titulo-decoracion" aria-hidden="true"></div>
+      </div>
+
+      <div class="encuentros__contenedor" id="encuentros-scroll">
+        <article class="encuentros__item tarjeta-evento" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000000 60%, #000000 100%), url('assets/encuentro-1.jpg');">
+          <div class="tarjeta-evento__info">
+            <p class="tarjeta-evento__categoria">Partido</p>
+            <h3 class="tarjeta-evento__titulo">Tolosano<br>v. CDVE</h3>
+            <div class="tarjeta-evento__meta">
+              <span class="tarjeta-evento__meta-item">
+                <img src="assets/lugar.png" alt="" style="width: 16px; height: 16px; object-fit: contain;"> Círculo Cultural Tolosano
+              </span>
+              <span class="tarjeta-evento__meta-item">
+                <img src="assets/hora.png" alt="" style="width: 16px; height: 16px; object-fit: contain;"> 20 de Junio – 20:00 HS
+              </span>
+              <span class="tarjeta-evento__meta-item">
+                <img src="assets/calendario.png" alt="" style="width: 16px; height: 16px; object-fit: contain;"> Primer fecha
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="encuentros__item tarjeta-evento" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000000 60%, #000000 100%), url('assets/encuentro-2.jpg');">
+          <div class="tarjeta-evento__info">
+            <p class="tarjeta-evento__categoria">Evento</p>
+            <h3 class="tarjeta-evento__titulo">Jornada solidaria</h3>
+            <div class="tarjeta-evento__meta">
+              <span class="tarjeta-evento__meta-item">
+                <img src="assets/lugar.png" alt="" style="width: 16px; height: 16px; object-fit: contain;"> Círculo Cultural Tolosano
+              </span>
+              <span class="tarjeta-evento__meta-item">
+                <img src="assets/hora.png" alt="" style="width: 16px; height: 16px; object-fit: contain;"> 20 de Junio – 20:00 HS
+              </span>
+              <span class="tarjeta-evento__meta-item">
+                <img src="assets/calendario.png" alt="" style="width: 16px; height: 16px; object-fit: contain;"> Primer fecha
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="encuentros__item tarjeta-evento" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000000 60%, #000000 100%), url('assets/encuentro-3.jpg');">
+          <div class="tarjeta-evento__info">
+            <p class="tarjeta-evento__categoria">Partido</p>
+            <h3 class="tarjeta-evento__titulo">Vóley femenino</h3>
+            <div class="tarjeta-evento__meta">
+              <span class="tarjeta-evento__meta-item">
+                <img src="assets/lugar.png" alt="" style="width: 16px; height: 16px; object-fit: contain;"> Círculo Cultural Tolosano
+              </span>
+              <span class="tarjeta-evento__meta-item">
+                <img src="assets/hora.png" alt="" style="width: 16px; height: 16px; object-fit: contain;"> 20 de Junio – 20:00 HS
+              </span>
+              <span class="tarjeta-evento__meta-item">
+                <img src="assets/calendario.png" alt="" style="width: 16px; height: 16px; object-fit: contain;"> Primer fecha
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="encuentros__item tarjeta-evento" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000000 60%, #000000 100%), url('assets/encuentro-4.jpg');">
+          <div class="tarjeta-evento__info">
+            <p class="tarjeta-evento__categoria">Partido</p>
+            <h3 class="tarjeta-evento__titulo">Vóley femenino</h3>
+            <div class="tarjeta-evento__meta">
+              <span class="tarjeta-evento__meta-item">
+                <img src="assets/lugar.png" alt="" style="width: 16px; height: 16px; object-fit: contain;"> Círculo Cultural Tolosano
+              </span>
+              <span class="tarjeta-evento__meta-item">
+                <img src="assets/hora.png" alt="" style="width: 16px; height: 16px; object-fit: contain;"> 20 de Junio – 20:00 HS
+              </span>
+              <span class="tarjeta-evento__meta-item">
+                <img src="assets/calendario.png" alt="" style="width: 16px; height: 16px; object-fit: contain;"> Primer fecha
+              </span>
+            </div>
+          </div>
+        </article>
+
+        <article class="encuentros__item tarjeta-evento" style="background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%, #000000 60%, #000000 100%), url('assets/encuentro-5.jpg');">
+          <div class="tarjeta-evento__info">
+            <p class="tarjeta-evento__categoria">Partido</p>
+            <h3 class="tarjeta-evento__titulo">Vóley femenino</h3>
+            <div class="tarjeta-evento__meta">
+              <span class="tarjeta-evento__meta-item">
+                <img src="assets/lugar.png" alt="" style="width: 16px; height: 16px; object-fit: contain;"> Círculo Cultural Tolosano
+              </span>
+              <span class="tarjeta-evento__meta-item">
+                <img src="assets/hora.png" alt="" style="width: 16px; height: 16px; object-fit: contain;"> 20 de Junio – 20:00 HS
+              </span>
+              <span class="tarjeta-evento__meta-item">
+                <img src="assets/calendario.png" alt="" style="width: 16px; height: 16px; object-fit: contain;"> Primer fecha
+              </span>
+            </div>
+          </div>
+        </article>
+      </div>
+        <button class="carrusel-encuentros__flecha" aria-label="Deslizar siguientes eventos">&gt;</button>
+      </div>
+    </section>
+
+    <!-- ==================== MANTENETE AL TANTO (NOTICIAS) ==================== -->
+    <section class="novedades" id="noticias" aria-labelledby="novedades-titulo">
+      <div class="container">
+        <div class="novedades__encabezado" style="display: flex; align-items: center; gap: var(--espacio-sm);">
+          <h2 class="novedades__titulo" id="novedades-titulo" style="white-space: nowrap;">Mantenete al tanto</h2>
+          <div class="novedades__decoracion titulo-decoracion" aria-hidden="true" style="flex-grow: 1;"></div>
+        </div>
+      </div>
+
+      <div class="novedades__carrusel" role="region" aria-label="Carrusel de noticias">
+        <article class="novedades__item tarjeta-noticia" style="background-image: linear-gradient(to bottom, transparent 0%, transparent 60%, #000000 100%), url('assets/noticia-1.jpg');">
+          <div class="container tarjeta-noticia__container">
+            <div class="tarjeta-noticia__contenido">
+            <h3 class="tarjeta-noticia__titulo">Máximo Fernandez</h3>
+            <p class="tarjeta-noticia__resumen">
+              La <strong>nueva promesa</strong> aterrizando en nuestro club,<br> participará de
+              las fechas a partir del 30 de Junio.
+            </p>
+            <a href="#" class="tarjeta-noticia__cta boton boton--primario boton--pastilla">Saber más &gt;</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="novedades__item tarjeta-noticia" style="background-image: linear-gradient(to bottom, transparent 0%, transparent 60%, #000000 100%), url('assets/noticia-2.jpg');">
+          <div class="container tarjeta-noticia__container">
+            <div class="tarjeta-noticia__contenido">
+            <h3 class="tarjeta-noticia__titulo">Máximo Fernandez</h3>
+            <p class="tarjeta-noticia__resumen">
+              La <strong>nueva promesa</strong> aterrizando en nuestro club, participará de
+              las fechas a partir del 30 de Junio.
+            </p>
+            <a href="#" class="tarjeta-noticia__cta boton boton--primario boton--pastilla">Saber más &gt;</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="novedades__item tarjeta-noticia" style="background-image: linear-gradient(to bottom, transparent 0%, transparent 60%, #000000 100%), url('assets/noticia-3.jpg');">
+          <div class="container tarjeta-noticia__container">
+            <div class="tarjeta-noticia__contenido">
+            <h3 class="tarjeta-noticia__titulo">Máximo Fernandez</h3>
+            <p class="tarjeta-noticia__resumen">
+              La <strong>nueva promesa</strong> aterrizando en nuestro club, <br> participará de
+              las fechas a partir del 30 de Junio.
+            </p>
+            <a href="#" class="tarjeta-noticia__cta boton boton--primario boton--pastilla">Saber más &gt;</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="novedades__item tarjeta-noticia" style="background-image: linear-gradient(to bottom, transparent 0%, transparent 60%, #000000 100%), url('assets/noticia-4.jpg');">
+          <div class="container tarjeta-noticia__container">
+            <div class="tarjeta-noticia__contenido">
+            <h3 class="tarjeta-noticia__titulo">Máximo Fernandez</h3>
+            <p class="tarjeta-noticia__resumen">
+              La <strong>nueva promesa</strong> aterrizando en nuestro club, participará de
+              las fechas a partir del 30 de Junio.
+            </p>
+            <a href="#" class="tarjeta-noticia__cta boton boton--primario boton--pastilla">Saber más &gt;</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="novedades__item tarjeta-noticia" style="background-image: linear-gradient(to bottom, transparent 0%, transparent 60%, #000000 100%), url('assets/noticia-5.jpg');">
+          <div class="container tarjeta-noticia__container">
+            <div class="tarjeta-noticia__contenido">
+            <h3 class="tarjeta-noticia__titulo">Máximo Fernandez</h3>
+            <p class="tarjeta-noticia__resumen">
+              La <strong>nueva promesa</strong> aterrizando en nuestro club, <br> participará de
+              las fechas a partir del 30 de Junio.
+            </p>
+            <a href="#" class="tarjeta-noticia__cta boton boton--primario boton--pastilla">Saber más &gt;</a>
+            </div>
+          </div>
+        </article>
+
+        <div class="container carrusel__controles-wrapper">
+          <div class="carrusel__indicadores" role="tablist" aria-label="Seleccionar noticia">
+          <span class="carrusel__indicador carrusel__indicador--activo" role="tab" aria-selected="true" aria-label="Noticia 1"></span>
+          <span class="carrusel__indicador" role="tab" aria-selected="false" aria-label="Noticia 2"></span>
+          <span class="carrusel__indicador" role="tab" aria-selected="false" aria-label="Noticia 3"></span>
+          <span class="carrusel__indicador" role="tab" aria-selected="false" aria-label="Noticia 4"></span>
+          <span class="carrusel__indicador" role="tab" aria-selected="false" aria-label="Noticia 5"></span>
+        </div>
+
+        <button class="carrusel__flecha" aria-label="Siguiente noticia">&gt;</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SPONSORS ==================== -->
+    <section class="sponsors" aria-labelledby="sponsors-titulo">
+      <div class="container">
+        <div class="sponsors__cabecera">
+        <h2 class="sponsors__titulo" style="line-height: 1; margin-bottom: -15px;">
+  <svg xmlns="http://www.w3.org/2000/svg" style="width: 100%; max-width: 600px; height: 160px; overflow: visible;" aria-label="Sponsors">
+    <defs>
+      <linearGradient id="gradSponsors" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="3.79%" stop-color="#FFFFFF" />
+        <stop offset="108.7%" stop-color="#2C71FF" />
+      </linearGradient>
+    </defs>
+    <text x="2" y="55%" dominant-baseline="middle" text-anchor="start" fill="none" stroke="url(#gradSponsors)" stroke-width="2" stroke-linejoin="round" style="font-family: 'Bebas Neue', sans-serif; font-size: 144px;">Sponsors</text>
+  </svg>
+</h2>
+        <p class="sponsors__texto">
+          El camino de Tolosano también se juega con quienes <br> apuestan al deporte, al barrio
+          y a la comunidad.
+        </p>
+      </div>
+
+      <div class="sponsors__lista">
+        <img class="sponsors__logo" src="assets/sponsor-1.jpg" alt="Logo de sponsor 1" loading="lazy">
+        <img class="sponsors__logo" src="assets/sponsor-2.jpg" alt="Logo de sponsor 2" loading="lazy">
+      </div>
+      </div>
+    </section>
+
+  </main>
+
+  <a href="#top" class="boton-subir" aria-label="Volver arriba">
+    <span class="icono-flecha-arriba" aria-hidden="true">&uarr;</span>
+  </a>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer" id="contacto">
+
+    <div class="container footer__grid">
+
+      <!-- Columna 1: Marca -->
+      <div class="footer__columna footer__columna--marca">
+        <div class="footer__marca">
+          <img class="footer__logo" src="assets/logo-tolosano.png" alt="Escudo del Club Tolosano" loading="lazy">
+          <span class="footer__nombre">TOLOSANO</span>
+        </div>
+        <p class="footer__texto">
+          Círculo Cultural Tolosano. Más de un siglo formando deportistas y fortaleciendo
+          el tejido social de nuestro barrio.
+        </p>
+      </div>
+
+      <!-- Columna 2: Mapa del sitio -->
+      <div class="footer__columna footer__columna--mapa">
+        <h4 class="footer__titulo" id="footer-mapa-titulo">Mapa del sitio</h4>
+        <nav aria-labelledby="footer-mapa-titulo">
+          <ul class="footer__lista">
+            <li class="footer__item"><a class="footer__link" href="#inicio">Inicio</a></li>
+            <li class="footer__item"><a class="footer__link" href="#noticias">Noticias</a></li>
+            <li class="footer__item"><a class="footer__link" href="#deportes">Deportes</a></li>
+            <li class="footer__item"><a class="footer__link" href="#">Sponsors</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <!-- Columna 3: Comunidad -->
+      <div class="footer__columna footer__columna--comunidad">
+        <h4 class="footer__titulo">Comunidad</h4>
+        <ul class="footer__redes">
+          <li class="footer__item">
+            <a class="footer__link footer__link--icono" href="#" aria-label="Instagram del Club Tolosano">
+              <svg class="footer__icono" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+                <path d="M12 2c2.717 0 3.056.01 4.122.06 1.065.05 1.79.217 2.428.465a4.9 4.9 0 0 1 1.771 1.153 4.9 4.9 0 0 1 1.153 1.771c.248.637.415 1.363.465 2.428.05 1.066.06 1.405.06 4.122s-.01 3.056-.06 4.122c-.05 1.065-.217 1.79-.465 2.428a4.9 4.9 0 0 1-1.153 1.771 4.9 4.9 0 0 1-1.771 1.153c-.637.248-1.363.415-2.428.465-1.066.05-1.405.06-4.122.06s-3.056-.01-4.122-.06c-1.065-.05-1.79-.217-2.428-.465a4.9 4.9 0 0 1-1.771-1.153 4.9 4.9 0 0 1-1.153-1.771c-.248-.637-.415-1.363-.465-2.428C2.013 15.056 2 14.717 2 12s.01-3.056.06-4.122c.05-1.065.217-1.79.465-2.428a4.9 4.9 0 0 1 1.153-1.771A4.9 4.9 0 0 1 5.45 2.525c.637-.248 1.363-.415 2.428-.465C8.944 2.013 9.283 2 12 2zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 8.25A3.25 3.25 0 1 1 12 8.5a3.25 3.25 0 0 1 0 6.75zm5.25-8.5a1.166 1.166 0 1 1 0-2.333 1.166 1.166 0 0 1 0 2.333z"/>
+              </svg>
+              Instagram
+            </a>
+          </li>
+          <li class="footer__item">
+            <a class="footer__link footer__link--icono" href="#" aria-label="Facebook del Club Tolosano">
+              <svg class="footer__icono" viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+                <path d="M13.5 21v-8.25h2.77l.42-3.22h-3.19V7.44c0-.93.26-1.57 1.6-1.57h1.71V2.98C15.85 2.9 14.87 2.83 13.71 2.83c-2.42 0-4.08 1.48-4.08 4.19v2.5H6.85v3.22h2.78V21h3.87z"/>
+              </svg>
+              Facebook
+            </a>
+          </li>
+        </ul>
+        <p class="footer__texto">Seguinos para enterarte de<br> todo al instante.</p>
+      </div>
+
+      <!-- Columna 4: Contacto -->
+      <address class="footer__columna footer__columna--contacto">
+        <h4 class="footer__titulo">Contactanos</h4>
+        <p class="footer__texto">
+          <a class="footer__link" href="tel:+5492214820828">+54 9 221 482-0828</a>
+        </p>
+        <p class="footer__texto">
+          Calle 115 Bis 377, <br>Tolosa, B1906DIG,<br>
+          La Plata, Provincia<br> de Buenos Aires
+        </p>
+      </address>
+
+    </div>
+
+    <div class="container footer__bottom">
+      <p class="footer__copyright">&copy; 2026 | Tolosano | Todos los derechos reservados.</p>
+    </div>
+
+  </footer>
+
+</body>
+</html>
