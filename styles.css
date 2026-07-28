@@ -1019,3 +1019,27 @@ b, strong, th {
 .encuentros__encabezado {
   margin-bottom: var(--espacio-md) !important;
 }
+
+/* =========================================================================
+   FIX HERO IMAGE POSITION ON MOBILE
+   ========================================================================= */
+@media (max-width: 768px) {
+  .hero {
+    /* Mueve la imagen hacia arriba para recortar el espacio negro de arriba */
+    background-position: center bottom !important;
+  }
+}
+
+/* =========================================================================
+   FIX HERO HEIGHT (Eliminar espacio vacío reduciendo la altura)
+   ========================================================================= */
+@media (max-width: 768px) {
+  .hero {
+    /* Eliminamos el espacio vacio reduciendo drásticamente la altura de la sección */
+    min-height: 50vh !important;
+    padding-top: var(--espacio-sm) !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+  }
+}
