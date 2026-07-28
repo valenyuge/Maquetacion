@@ -1014,3 +1014,8 @@ b, strong, th {
 .carrusel__indicadores, .carrusel__flecha {
   pointer-events: auto !important;
 }
+
+/* Fix gap between Encuentros header and cards */
+.encuentros__encabezado {
+  margin-bottom: var(--espacio-md) !important;
+}
