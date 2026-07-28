@@ -179,6 +179,8 @@ h3 {
 
 .encuentros__contenedor {
   display: grid;
+  margin-right: calc(var(--espacio-sm) * -1);
+  padding-right: var(--espacio-sm);
   grid-auto-flow: column;
   grid-auto-columns: 85%;
   gap: var(--espacio-sm);
@@ -229,12 +231,21 @@ h3 {
   position: relative;
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr;
+  grid-auto-flow: column;
+  grid-auto-columns: 100%;
+  gap: 0;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+.novedades__carrusel::-webkit-scrollbar {
+  display: none;
 }
 
 .tarjeta-noticia {
   container-type: inline-size;
   container-name: tarjeta-noticia;
+  scroll-snap-align: start;
 }
 
 .tarjeta-noticia__contenido {
@@ -512,6 +523,7 @@ body {
 /* ---------- Barra decorativa diagonal (reutilizable: encabezados de sección) ---------- */
 .titulo-decoracion {
   height: 40px;
+  margin-right: calc(var(--espacio-sm) * -1);
   background: linear-gradient(to right, #FFFFFF, var(--color-acento));
   clip-path: polygon(10px 0, 100% 0, 100% 100%, 0 100%);
 }
@@ -519,7 +531,7 @@ body {
 /* ---------- Tarjeta de noticia: slide destacado del carrusel ---------- */
 .tarjeta-noticia {
   position: relative;
-  min-height: 100vh;
+  min-height: 630px;
   overflow: hidden;
   background-image:
     linear-gradient(to bottom, transparent 0%, transparent 60%, #000000 100%),
@@ -862,4 +874,143 @@ b, strong, th {
 .sponsors__texto {
   flex: 1 1 auto;
   margin-left: 2rem;
+}
+
+@media (min-width: 1280px) {
+  .titulo-decoracion,
+  .encuentros__contenedor {
+    margin-right: -70px;
+  }
+  .encuentros__contenedor {
+    padding-right: 70px;
+  }
+}
+
+/* =========================================================================
+   RESTORED MOBILE FIXES (from Jul 27)
+   ========================================================================= */
+
+/* 1. Header Sticky */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+@media (min-width: 1280px) {
+  .header {
+    position: relative;
+  }
+}
+
+/* 2. Hide logo text on small mobiles */
+@media (max-width: 420px) {
+  .header__nombre {
+    display: none !important;
+  }
+}
+
+/* 3. Header layout on mobile */
+.header__container {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+@media (min-width: 1280px) {
+  .header__container {
+    grid-template-columns: auto 1fr;
+    justify-content: space-between;
+  }
+}
+
+/* 4. Nav layout */
+.nav__lista {
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  overflow-x: auto;
+}
+.nav__link {
+  font-size: 16px !important;
+}
+.nav__item {
+  padding: 0 0.5rem;
+}
+@media (min-width: 1280px) {
+  .nav__lista {
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow-x: visible;
+  }
+  .nav__link {
+    font-size: 32px !important;
+  }
+  .nav__item {
+    padding: 0 var(--espacio-sm);
+  }
+}
+
+/* 5. Hero 2025 Overlap */
+.hero__titulo--solid {
+  margin-top: -10% !important;
+}
+@media (min-width: 1280px) {
+  .hero__titulo--solid {
+    margin-top: -150px !important;
+  }
+}
+
+/* 6. Sponsors Desktop/Mobile Flex Direction */
+@media (max-width: 1279px) {
+  .sponsors__cabecera {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .sponsors__titulo {
+    min-width: 0 !important;
+  }
+}
+
+/* =========================================================================
+   FINAL TWEAKS (Sponsors SVG, Header alignment, Arrows, Touch Swipe, Gap)
+   ========================================================================= */
+
+/* 1. Sponsors SVG Size on Mobile */
+@media (max-width: 768px) {
+  .sponsors__cabecera svg {
+    max-height: 80px !important;
+  }
+}
+
+/* 2. Hide arrows on mobile */
+@media (max-width: 768px) {
+  .carrusel__flecha, .carrusel-encuentros__flecha {
+    display: none !important;
+  }
+}
+
+/* 3. Space between Proximos Encuentros and carousel */
+.encuentros {
+  gap: var(--espacio-lg) !important;
+}
+
+/* 4. Fix Header Crookedness */
+.nav__lista {
+  margin: 0 !important;
+  padding: 0 !important;
+  align-items: center;
+}
+.header__marca {
+  margin: 0 !important;
+}
+
+/* 5. Ensure Touch Swipe Works */
+.novedades__carrusel {
+  -webkit-overflow-scrolling: touch !important;
+  touch-action: pan-x pan-y !important;
+}
+
+/* Fix pointers for controls since wrapper has pointer-events: none */
+.carrusel__indicadores, .carrusel__flecha {
+  pointer-events: auto !important;
 }

@@ -7,51 +7,21 @@ document.addEventListener("DOMContentLoaded", () => {
     // LÓGICA DEL CARRUSEL DE NOVEDADES
     // ==========================================
     
-    // 1. Seleccionamos los elementos del DOM necesarios
-    const slides = document.querySelectorAll(".novedades__item");
+    const contenedorNovedades = document.querySelector(".novedades__carrusel");
     const indicadores = document.querySelectorAll(".carrusel__indicador");
     const flechaSiguiente = document.querySelector(".carrusel__flecha");
 
-    let slideActual = 0;
+    let autoSlideInterval;
 
-    /**
-     * Función para actualizar el estado visual del carrusel
-     * @param {number} indice - Índice de la noticia a mostrar
-     */
-    const actualizarCarrusel = (indice) => {
-        // Mostramos el slide correspondiente y ocultamos los demás
-        slides.forEach((slide, i) => {
-            if (i === indice) {
-                slide.style.display = "block";
-            } else {
-                slide.style.display = "none";
-            }
-        
-    // ==========================================
-    // LÓGICA DEL CARRUSEL DE ENCUENTROS
-    // ==========================================
-    const contenedorEncuentros = document.getElementById("encuentros-scroll");
-    const flechaEncuentros = document.querySelector(".carrusel-encuentros__flecha");
+    const getSlideIndex = () => {
+        if (!contenedorNovedades) return 0;
+        const width = contenedorNovedades.clientWidth;
+        if (width === 0) return 0;
+        return Math.round(contenedorNovedades.scrollLeft / width);
+    };
 
-    if (flechaEncuentros && contenedorEncuentros) {
-        flechaEncuentros.addEventListener("click", () => {
-            // Obtenemos el ancho de una tarjeta usando el primer hijo
-            const tarjetaWidth = contenedorEncuentros.firstElementChild.offsetWidth;
-            // Sumamos el gap aproximado (ej. 16px) o simplemente deslizamos el ancho de la tarjeta entera
-            const scrollAmount = tarjetaWidth + 16;
-            
-            // Verificamos si estamos cerca del final para volver al inicio, o simplemente avanzar
-            if (contenedorEncuentros.scrollLeft + contenedorEncuentros.clientWidth >= contenedorEncuentros.scrollWidth - 10) {
-                contenedorEncuentros.scrollTo({ left: 0, behavior: "smooth" });
-            } else {
-                contenedorEncuentros.scrollBy({ left: scrollAmount, behavior: "smooth" });
-            }
-        });
-    }
-
-});
-
-        // Actualizamos las clases y atributos de los indicadores
+    const actualizarIndicadores = () => {
+        const indice = getSlideIndex();
         indicadores.forEach((indicador, i) => {
             if (i === indice) {
                 indicador.classList.add("carrusel__indicador--activo");
@@ -63,24 +33,60 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     };
 
-    // Inicializamos el carrusel mostrando únicamente la primera noticia
-    if (slides.length > 0) {
-        actualizarCarrusel(slideActual);
+    const avanzarNovedades = () => {
+        if (!contenedorNovedades) return;
+        const width = contenedorNovedades.clientWidth;
+        const maxScroll = contenedorNovedades.scrollWidth - contenedorNovedades.clientWidth;
+        
+        if (contenedorNovedades.scrollLeft >= maxScroll - 10) {
+            contenedorNovedades.scrollTo({ left: 0, behavior: "smooth" });
+        } else {
+            contenedorNovedades.scrollBy({ left: width, behavior: "smooth" });
+        }
+    };
+
+    if (contenedorNovedades) {
+        contenedorNovedades.addEventListener("scroll", () => {
+            actualizarIndicadores();
+        });
+
+        autoSlideInterval = setInterval(avanzarNovedades, 10000);
     }
 
-    // 2. Evento para avanzar a la siguiente noticia mediante la flecha
     if (flechaSiguiente) {
         flechaSiguiente.addEventListener("click", () => {
-            slideActual = (slideActual + 1) % slides.length;
-            actualizarCarrusel(slideActual);
+            avanzarNovedades();
+            clearInterval(autoSlideInterval);
+            autoSlideInterval = setInterval(avanzarNovedades, 10000);
         });
     }
 
-    // 3. Evento para navegar directamente a través de los indicadores
     indicadores.forEach((indicador, index) => {
         indicador.addEventListener("click", () => {
-            slideActual = index;
-            actualizarCarrusel(slideActual);
+            if (!contenedorNovedades) return;
+            const width = contenedorNovedades.clientWidth;
+            contenedorNovedades.scrollTo({ left: width * index, behavior: "smooth" });
+            clearInterval(autoSlideInterval);
+            autoSlideInterval = setInterval(avanzarNovedades, 10000);
         });
     });
+
+    // ==========================================
+    // LÓGICA DEL CARRUSEL DE ENCUENTROS
+    // ==========================================
+    const contenedorEncuentros = document.getElementById("encuentros-scroll");
+    const flechaEncuentros = document.querySelector(".carrusel-encuentros__flecha");
+
+    if (flechaEncuentros && contenedorEncuentros) {
+        flechaEncuentros.addEventListener("click", () => {
+            const tarjetaWidth = contenedorEncuentros.firstElementChild.offsetWidth;
+            const scrollAmount = tarjetaWidth + 16;
+            
+            if (contenedorEncuentros.scrollLeft + contenedorEncuentros.clientWidth >= contenedorEncuentros.scrollWidth - 10) {
+                contenedorEncuentros.scrollTo({ left: 0, behavior: "smooth" });
+            } else {
+                contenedorEncuentros.scrollBy({ left: scrollAmount, behavior: "smooth" });
+            }
+        });
+    }
 });
